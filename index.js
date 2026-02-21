@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public')); // Configure Express to serve static files
+app.use(express.json()); // Middleware to parse JSON bodies
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -19,6 +20,13 @@ app.get('/projects', (req, res) => {
 
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+});
+
+// API Route for Contact Form
+app.post('/api/contact', (req, res) => {
+  console.log('Contact form submission received:');
+  console.log(req.body);
+  res.status(200).json({ success: true, message: 'Message received' });
 });
 
 app.listen(PORT, () => {
