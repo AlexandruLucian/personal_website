@@ -6,6 +6,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public')); // Configure Express to serve static files
 app.use(express.json()); // Middleware to parse JSON bodies
 
+// Custom Request Logger Middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
