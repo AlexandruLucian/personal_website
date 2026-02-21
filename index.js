@@ -5,8 +5,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public')); // Configure Express to serve static files
 
-const path = require('path');
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
