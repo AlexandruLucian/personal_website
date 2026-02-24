@@ -35,6 +35,23 @@ app.post('/api/contact', (req, res) => {
   res.status(200).json({ success: true, message: 'Message received' });
 });
 
+// API Route for Projects Data
+app.get('/api/projects', (req, res) => {
+  const projects = [
+    {
+      title: "Personal Website",
+      description: "A modern portfolio site built with Node.js, Express, and OpenClaw.",
+      url: "https://github.com/AlexandruLucian/personal_website"
+    },
+    {
+      title: "OpenClaw Integration",
+      description: "Automation scripts and skills for managing development workflows.",
+      url: "https://github.com/openclaw/openclaw"
+    }
+  ];
+  res.status(200).json(projects);
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
