@@ -1,0 +1,25 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #007bff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+a {
+  color: var(--link-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #333333;
+    --text-color: #f0f0f0;
+    --link-color: #8ab4f8; /* Google blue for dark mode */
+  }
+}
